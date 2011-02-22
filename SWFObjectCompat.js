@@ -3,7 +3,12 @@ var SWFObject = new Class({
 		version: '9.0.0',
 		expressInstallSwfurl: 'http://s.mcstatic.com/Flash/expressInstall.swf',
 		flashvars: {},
-		params: swfobject.defaultParams,
+		params: {
+			"wmode":"transparent",
+			"quality":"high",
+			"allowfullscreen":"true",
+			"allowscriptaccess":"always"
+		},
 		attributes: {},
 		callbackFn: null
 	},
@@ -26,6 +31,9 @@ var SWFObject = new Class({
 	},
 	addParam: function(key, value){
 		this.options.params[key] = value;
+	},
+	addVariable: function(key, value){
+		this.options.flashvars[key] = value;
 	},
 	write: function(wrapperDivID){
 		var o = this.options;
