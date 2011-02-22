@@ -37,6 +37,7 @@ var SWFObject = new Class({
 	},
 	write: function(wrapperDivID){
 		var o = this.options;
+		$(wrapperDivID).set('html', '');
 		new Element('div#'+o.id).inject(wrapperDivID);
 		swfobject.embedSWF(o.swf, o.id, o.width, o.height, o.version, o.expressInstallSwfurl, o.flashvars, o.params, o.attributes, o.callbackFn);
 	}
